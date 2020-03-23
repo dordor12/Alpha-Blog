@@ -1,0 +1,17 @@
+<div>
+    <h2>Title: <%= @article.title %></h2>
+    <div class="well">
+        <h4>
+            <strong>Discription:</strong>
+        </h4>
+        <div>
+            <%= simple_format(@article.discription) %>
+            <%= render 'categories/categories_badges', categories: @article.categories %>
+    <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
+    <%= link_to "Edit article", edit_article_path(@article), class: "btn btn-primary" %>
+        <%= link_to "Delete article", article_path(@article),method: :delete,
+                                    date: {confirm: "Are you sure you want to delete this article"}, 
+                                    class: "btn btn-danger" %>
+    <% end %>
+    <%= link_to "Back to articles", articles_path, class: "btn btn-secondary" %>
+</div>

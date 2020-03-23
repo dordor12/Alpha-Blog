@@ -1,0 +1,55 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+#logo{
+    float: left;
+    font-size: 1.7em;
+    color: dodgerblue;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.center{
+    text-align: center;
+}
+.pagination-nav{
+    display: flex;
+    justify-content: center;
+}
+.jumbotron{
+    background-image: asset-url('windows.jpg');
+    background-size: cover;
+    color: white;
+}
+.card-title{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.card-text{
+    border-top: 1px solid #eaeaea;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.card-metadata{
+    border-top: 1px solid #eaeaea;
+    margin-top: 15px;
+}
+
+.footer_container{
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px solid #eaeaea;
+    background-color: cornflowerblue;
+}
+
+.footer_container small{
+   float: left;
+}
+.footer_container ul{
+    float: right;
+    list-style: none;
+}
+.footer_container ul li{
+    float: left;
+    margin-left: 15px;
+}

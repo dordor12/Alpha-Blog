@@ -1,0 +1,23 @@
+<% articles.each do |article| %>
+<div class="card">
+    <div class="card-body">
+        <%= link_to article.title, article_path(article), class: "card-title" %>
+      <p class="card-text">
+        <%= truncate article.discription, length: 100 %>
+      </div>
+      <%= render 'categories/categories_badges', categories: article.categories %>
+        <div class="card-metadata">
+            <small>Created by <%= article.user.username unless article.user.nil? %>, 
+                <%= time_ago_in_words article.created_at %> ago,
+                 last updated: <%= time_ago_in_words article.updated_at %> ago
+            </small>
+        </div>
+      </p>
+      <% if logged_in? && (current_user == article.user || current_user.admin?) %>
+        <div class="article-actions">
+          <%= link_to 'Edit', edit_article_path(article), class: "btn btn-primary" %>
+          <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+        </div>
+       <% end %>
+    </div>
+<% end %>

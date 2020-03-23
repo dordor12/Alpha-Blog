@@ -1,0 +1,12 @@
+<h1>List of all articles</h1>
+
+<p>
+    <%= link_to 'Create new article', new_article_path %>
+</p>
+<div class="pagination-nav">
+    <%= will_paginate(@things, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+</div>
+<%= render 'article', articles: @articles %>
+<div class="pagination-nav">
+    <%= will_paginate(@things, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+</div>

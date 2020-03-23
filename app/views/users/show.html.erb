@@ -1,0 +1,17 @@
+<h1>Welocome to <%= @user.username %>'s page</h1>
+<div>
+    <%= gravatar_for @user%>
+    <div>
+        <small>
+            <%= 'admin' if @user.admin?%>
+        </small>
+    </div>
+</div>
+<h4> <%= @user.username %>'s articls:</h4>
+<div class="pagination-nav">
+    <%= will_paginate(@user_articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+</div>
+<%= render 'articles/article', articles: @user_articles%>
+<div class="pagination-nav">
+    <%= will_paginate(@user_articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+</div>

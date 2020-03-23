@@ -1,0 +1,26 @@
+<h1>All Alpha Bloggers</h1>
+<div class="pagination-nav">
+    <%= will_paginate(@things, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+</div>
+<% @users.each do |user| %>
+<div class="card">
+    <div class="card-body">
+        <div class="card-title">
+            <%= link_to gravatar_for(user), user_path(user) %>
+            <div>
+                <%= link_to user.username, user_path(user) %>
+            </div>
+        </div>
+      <p class="card-text">
+        <%= user.articles.count > 0 ? pluralize(user.articles.count, 'article') : 'user did\'nt upload any articles yet' %>
+      </p>
+    <% if logged_in? && current_user.admin? %>
+        <div>
+            <%= link_to 'Delete', user_path(user), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+        </div>
+    <% end %>
+</div>
+<% end %>
+<div class="pagination-nav">
+    <%= will_paginate(@things, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+</div>

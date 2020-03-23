@@ -1,0 +1,11 @@
+<h1><%= @category.name %>'s Articles</h1>
+<% if logged_in? && current_user.admin? %>
+    <%= link_to "Edit Category", edit_category_path(@category), class: "btn btn-primary" %>
+<% end %>
+<div class="pagination-nav">
+    <%= will_paginate(@category_articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+</div>
+<%= render 'articles/article', articles: @category_articles %>
+<div class="pagination-nav">
+    <%= will_paginate(@category_articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+</div>
