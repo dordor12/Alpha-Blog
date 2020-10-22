@@ -218,9 +218,3 @@ DEPENDENCIES
   webdrivers
   webpacker (~> 4.0)
   will_paginate (= 3.1.7)
-
-RUBY VERSION
-   ruby 2.6.5p114
-
-BUNDLED WITH
-   1.17.2
